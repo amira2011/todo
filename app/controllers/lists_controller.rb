@@ -15,6 +15,9 @@ class ListsController < ApplicationController
     end
 
     def create
+
+        list = List.create(list_params)
+        render json: list
     
     end
 
@@ -35,6 +38,10 @@ class ListsController < ApplicationController
     
     end
 
+    def list_params
+        params.permit(:name)
+      end
+  
      
 
 end

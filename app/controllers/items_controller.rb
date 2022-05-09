@@ -38,6 +38,8 @@ class ItemsController < ApplicationController
     end
 
     def destroy
+        
+        Item.destroy(params[:id])
     
     end
 
