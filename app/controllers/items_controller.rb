@@ -6,16 +6,47 @@ class ItemsController < ApplicationController
     end
 
     def show
-        @list= Item.all
-        render json:  @list
+        @list= List.find(params[:id])
+         @items=@list.items    
+        render json:   @items
 
     end
 
     def new
-
+        
     end
 
     def create
+
+
+        item = Item.create(item_params)
+        render json: item
     
     end
+
+    def edit
+    
+    end
+
+
+    def update
+    
+    end
+
+    def delete
+    
+    end
+
+    def destroy
+    
+    end
+
+
+    private 
+
+    def item_params
+      params.permit(:name, :status, :list_id)
+    end
+
+
 end

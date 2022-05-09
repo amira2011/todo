@@ -7,9 +7,17 @@ Rails.application.routes.draw do
 
    resources :lists do
 
+    member do
+      get :delete
+    end
+
    end
 
    resources :items do
+
+    member do
+      get :delete
+    end
 
    end
 end
