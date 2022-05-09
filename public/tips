@@ -1,0 +1,19 @@
+sudo -u postgres createuser hod -s
+create role admin with createdb login password 'admin';
+
+
+rails generate model ToDoList name:string
+
+rails generate migration AddToDoListRefToToDoListItems ToToDoList:references
+
+myapp_development | hod      | UTF8     | en_IN   | en_IN | 
+ myapp_test 
+ DROP DATABASE myapp_test
+ 
+ 
+rails generate controller Lists index
+rails generate model List name:string
+rails generate model Item name:string status:string
+rails g migration add_list_id_to_items list_id:integer
+rails g migration AddListToItems list:references
+

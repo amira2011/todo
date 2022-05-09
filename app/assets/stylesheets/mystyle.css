@@ -1,0 +1,66 @@
+.navbar-title {
+    font-size: 15px;
+    margin-left: 15px;
+}
+
+
+
+
+.username-label {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    line-height: 14px;
+
+}
+
+.fa-plus {
+    padding-left: 4px;
+}
+
+
+a:hover {
+
+    color: blueviolet;
+}
+
+ul li a i.fa-chevron-right {
+    display: none;
+}
+
+ul li.active a i.fa-chevron-right {
+    display: inline;
+
+}
+
+ul li.active a {
+
+    font-weight: 600;
+    color: blueviolet;
+}
+
+
+ul li a {
+
+    color: black;
+
+}
+
+.list-link {
+    display: block;
+    padding: 3px 1rem;
+    font-size: 14px;
+}
+
+#to-do-item {
+    font-size: 14px;
+    line-height: 14px;
+
+}
+
+.fa-times {
+    right: 40px;
+    color: red;
+    cursor: pointer;
+    position: absolute;
+}
