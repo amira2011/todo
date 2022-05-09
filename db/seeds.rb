@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+List.delete_all 
+List.create(:name=> 'Places to Visit')
+List.create(:name=> 'Eat')
+List.create(:name=> 'Assignment')
+puts "Success:  data loaded"
