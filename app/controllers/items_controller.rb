@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
 
     def index
-        @list= List.all
+        @list= Item.all
         render json:  @list
     end
 
     def show
-        @list= List.all
+        @list= Item.all
         render json:  @list
 
     end
