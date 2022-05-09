@@ -104,42 +104,21 @@
                         <!-- List  panes -->
                         <div class="container tab-content">
                             <div id="all" class="row  tab-pane active  mt-2  ">
-                                <div class="col-md-12" id="l1" style="display: none;">
-                                    <div data-id=1 data-status="not-completed"
+                     <% @list_items.each do |i| %>
+                                <div class="col-md-12" id=<%=i.list_id %> ">
+                                    <div data-id=1 data-status=<%=i.status %>
                                         class="row border align-items-center p-2 " style="line-height: 0px;">
                                         <input class="check pl-2" name="check" type="checkbox" />
-                                        <p class="mt-3 pl-3">BKK</p>
+                                        <p class="mt-3 pl-3"><%=i.name %></p>
                                         <i class="fa fa-times border " aria-hidden="true"></i>
                                     </div>
-                                    <div data-id=1 data-status="not-completed"
-                                        class="row border align-items-center p-2 " style="line-height: 0px;">
-                                        <input class="check pl-2" name="check" type="checkbox" />
-                                        <p class="mt-3 pl-3">Dubai</p>
-                                        <i class="fa fa-times border " aria-hidden="true"></i>
-                                    </div>
-
-
                                 </div>
-
-                                <div class="col-md-12" id="l2" style="display: none;">
-                                    <div data-id=1 data-status="not-completed"
-                                        class="row border align-items-center p-2 " style="line-height: 0px;">
-                                        <input class="check pl-2" name="check" type="checkbox" />
-                                        <p class="mt-3 pl-3">Dr. Strange</p>
-                                        <i class="fa fa-times border " aria-hidden="true"></i>
-                                    </div>
-                                    <div data-id=1 data-status="not-completed"
-                                        class="row border align-items-center p-2 " style="line-height: 0px;">
-                                        <input class="check pl-2" name="check" type="checkbox" />
-                                        <p class="mt-3 pl-3">Spiderman</p>
-                                         
-                                        <i class="fa fa-times  border" aria-hidden="true"></i>
-                                    </div>
+                                    
+                     <% end %>
 
 
-
-                                </div>
-
+                              
+ 
                             </div>
 
                             <!--
