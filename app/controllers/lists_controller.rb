@@ -35,8 +35,11 @@ class ListsController < ApplicationController
     end
 
     def destroy
+        List.destroy(params[:id])
     
     end
+
+    
 
     def list_params
         params.permit(:name)
