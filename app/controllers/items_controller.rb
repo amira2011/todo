@@ -30,7 +30,10 @@ class ItemsController < ApplicationController
 
 
     def update
-    
+        
+        item=Item.find(params[:id])
+        item.status=params[:status]
+       puts item.save
     end
 
     def delete
