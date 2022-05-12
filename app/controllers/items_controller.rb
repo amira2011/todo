@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
     def show
         @list= List.find(params[:id])
-         @items=@list.items    
+         @items=@list.items.sorted    
         render json:   @items
 
     end
