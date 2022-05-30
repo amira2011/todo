@@ -1,0 +1,1368 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Indian Rail </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+        * {
+            font-size: 13px;
+            font-family: 'Montserrat', sans-serif;
+
+        }
+
+       
+
+ 
+
+
+        #price {
+            font-family: Google Sans, arial, sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+        }
+
+
+
+
+        .navbar-brand {
+            font-weight: 600;
+
+        }
+
+
+        div a i.fa-chevron-right {
+            display: none;
+        }
+
+        div.active i.fa-chevron-right {
+            display: inline;
+
+        }
+
+        div.active a {
+            color: blue;
+            font-weight: 600;
+        }
+
+        div a {
+            color: black
+        }
+
+
+
+        a:hover {
+            color: red;
+        }
+
+        ul li {
+            list-style: none;
+            padding: 2px;
+        }
+
+        .navlink {
+
+            text-decoration: none;
+            font-size: 14px;
+
+        }
+
+        .logo {
+            height: 85px;
+            width: 85px;
+            object-fit: contain;
+        }
+
+        #wicon {
+            height: 25px;
+            width: 25px;
+            object-fit: contain;
+        }
+
+        input:focus {
+
+            outline: none !important;
+            border-color: #719ECE;
+            box-shadow: 0 0 6px #719ECE;
+        }
+
+        .divactive {
+            outline: none !important;
+            border-color: #719ECE;
+            box-shadow: 0 0 6px #719ECE;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container ">
+            <div class="col-md-2 col-12 py-2 ml-5" style="margin-left: 25px;">
+                <a class="navbar-brand  " href="#">
+
+                    Indian Railways
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container ">
+        <div class="row py-5">
+            <div class="col-12 col-md-2 py-2  mb-3  ">
+                <div class="row" style="font-size: 12px;">
+                    <div class="p-1 bd-highlight d-flex justify-content-center"><img class="logo p-1"
+                            src="https://st.adda247.com/https://wpassets.adda247.com/wp-content/uploads/multisite/sites/5/2020/01/11073651/L3zNCNHo.jpg" />
+                    </div>
+                    <div class="p-1 bd-highlight d-flex justify-content-center divlink active" data-id="train-div-0"><a
+                            class="navlink  " aria-current="page" href="#">Home
+                            <i class="fa fa-chevron-right"></i>
+                        </a></div>
+
+                    <div class="p-1 bd-highlight d-flex justify-content-center divlink  " data-id="train-div-1"><a
+                            class="navlink  " aria-current="page" href="#">Train Schedule
+                            <i class="fa fa-chevron-right"></i>
+                        </a></div>
+
+                    <div class="p-1 bd-highlight d-flex justify-content-center divlink " data-id="train-div-2"><a
+                            class="navlink  " aria-current="page" href="#">Train Stations
+                            <i class="fa fa-chevron-right"></i>
+                        </a></div>
+
+                    <div class="p-1 bd-highlight d-flex justify-content-center divlink " data-id="train-div-3"><a
+                            class="navlink  " aria-current="page" href="#">PNR Check
+                            <i class="fa fa-chevron-right"></i>
+                        </a></div>
+
+
+                </div>
+
+            </div>
+            <div class="col-9 py-2 " style="margin-left: 25px;">
+                <div id="train-div-0" class="train-div trainactive">
+                    <div>
+                        <div class="fw-bold d-flex flex-lg-row    align-items-center flex-column">Search Trains</div>
+                        <div class="  d-flex flex-lg-row    align-items-center flex-column  " style="font-size: 12px;">
+
+                            <div class="py-2 justify-content-center"><input type="text" id="station1"
+                                    placeholder="Station Name"></div>
+                            <div class="p-2"> <input type="text" id="station2" placeholder="Station Name">
+                            </div>
+
+                            <div class="p-2"> <input type="text" class="date-pick" id="datepicker" placeholder="Date">
+                            </div>
+                            <div class="p-1" style="padding-left: 25px;"> <button type="button" id="searchTrains"
+                                    class="btn btn-primary btn-sm">Search</button></div>
+                                    <div> <i class="fa fa-spinner fa-spin spinner" style="display: none; font-size: 15px;"></i>
+                                    </div>
+                        </div>
+                    </div>
+
+                    <div class="searchBar mt-5 mb-2">
+                        
+
+                        <label for="sort">Sort By </label>
+                        <select name="sort" id="sort">
+                            <option selected="selected">Best Available</option>
+                            <option>Duration</option>
+                            <option>Cheapest</option>
+                            <option>Departure (Early First)</option>
+                            <option>Departure (Late First)</option>
+                            <option>Arrival (Early First)</option>
+                            <option>Arrival (Late First)</option>
+                        </select>
+                    </div>
+                    <div class="  train-list">
+
+
+
+
+
+                    </div>
+
+                    <div>
+
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Train Schedule</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body" id="modal1">
+                                         <h5 class="tname" style="font-weight: 600"></h5>
+                                         <i class="fa fa-spinner fa-spin spinner1" style="display: none; font-size: 15px;"></i>
+                                         <div  class="row   justify-content-center p-3"  >
+                                         <div class="p-2 col-auto align-items-center">
+                                            <table   class="table train-schedule-table table-responsive " style="width: auto;">
+                                               <thead>
+                                                      <tr>
+                                                               <th scope="col">#</th>
+                                                               <th scope="col">Station</th>
+                                                                <th scope="col">Arrival</th>
+                                                                <th scope="col">Departure</th>
+                                                               <th scope="col">Distance</th>
+                                                                <th scope="col">Day</th>
+                                          
+                      
+                    
+                                                     </tr>
+                                              </thead>
+                                            <tbody    id="myTable1">
+                                            </tbody>
+                                          </table>
+                                          </div>
+                                          </div>
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                         
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div id="train-div-1" class="train-div p-2" style="display:none">
+                    <div class="d-flex p-2 align-items-center  ">
+                    <div class="p-2"> <input type="text" id="train-schedule" placeholder="Enter Train No">
+                    </div>
+                    <div class="p-2"> <button type="button" id="train-schedule-btn" class="btn btn-primary btn-sm">Search</button></div>
+                    <div class="p-2">
+                    <i class="fa fa-spinner fa-spin spinner2" style="display: none; font-size: 14px;"></i>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div  class="row     "  >
+                        <div id="tname1" style="font-size:15px; font-weight: 600; margin: 5px;"></div>
+                        <div class="table-responsive-md">
+                           <table   class="table train-schedule-table1   "  >
+                              <thead>
+                                     <tr>
+                                              <th scope="col">#</th>
+                                              <th scope="col">Station</th>
+                                               <th scope="col">Arrival</th>
+                                               <th scope="col">Departure</th>
+                                              <th scope="col">Distance</th>
+                                               <th scope="col">Day</th>
+                         
+     
+   
+                                    </tr>
+                             </thead>
+                           <tbody    id="myTable2">
+                           </tbody>
+                         </table>
+                         </div>
+                         </div> 
+                </div>
+                </div>
+                <div id="train-div-2" class="train-div p-2" style="display:none">
+                    
+                    
+                    <div class="d-flex p-2 align-items-center  ">
+                        <div class="p-2"> <input type="text" id="train-station-1" placeholder="Enter Station Name">
+                        </div>
+                        <div class="p-2"> <button type="button" id="train-station-btn" class="btn btn-primary btn-sm">Search</button></div>
+                        <div class="p-2">
+                        <i class="fa fa-spinner fa-spin spinner3" style="display: none; font-size: 14px;"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div  class="row     "  >
+                            
+                            <div id="msg24" style="font-size:13px; margin: 5px;"></div>
+                            <div class="table-responsive-md">
+                               <table   class="table train-station-table1   "  >
+                                  <thead>
+                                         <tr>
+                                                  <th scope="col">Train#</th>
+                                                  <th scope="col">Name Name</th>
+                                                   <th scope="col">Arrival</th>
+                                                   <th scope="col">Departure</th>
+                                                  <th scope="col">Platform</th>
+                                                   <th scope="col">Delay</th>
+                             
+         
+       
+                                        </tr>
+                                 </thead>
+                               <tbody    id="myTable3">
+                               </tbody>
+                             </table>
+                             </div>
+                             </div> 
+                    </div>
+
+                </div>
+                <div id="train-div-3" class="train-div" style="display:none">
+                    train-div-3
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <!-- Jquery JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+</body>
+<script>
+    $(document).ready(function () {
+
+
+        var station1_data = [];
+        var station2_data = [];
+        var stationCode = [];
+        var date;
+
+
+        var meta_data = [
+
+
+            {
+                "ArrivalTime": "2022-05-30T23:22:00.000Z",
+                "AvailabileClass": "2S,SL,3A,2A",
+                "Availability": [
+                    {
+                        "ClassCode": "SL",
+                        "Fare": "160",
+                        "Status": "PQWL87/WL67",
+                        "UpdateOn": "5 DAYS AGO"
+                    },
+                    {
+                        "ClassCode": "2S",
+                        "Fare": "95",
+                        "Status": "AVAILABLE-0009",
+                        "UpdateOn": "5 DAYS AGO"
+                    }
+                ],
+                "DepartureTime": "2022-05-30T19:30:00.000Z",
+                "Destination": "KRD",
+                "Source": "PUNE",
+                "TrainName": "PUDUCHERRY EXP",
+                "TrainNo": "11005",
+                "Duration": "1970-01-01T03:52:00.000Z",
+                "Fare": 95,
+                "isAvailabe": true
+            },
+            {
+                "ArrivalTime": "2022-05-31T11:37:00.000Z",
+                "AvailabileClass": "2S,SL,CC,3A",
+                "Availability": [
+                    {
+                        "ClassCode": "SL",
+                        "Fare": "160",
+                        "Status": "RLWL10/WL9",
+                        "UpdateOn": "3 DAYS AGO"
+                    },
+                    {
+                        "ClassCode": "3A",
+                        "Fare": "505",
+                        "Status": "AVAILABLE-0008",
+                        "UpdateOn": "10 DAYS AGO"
+                    },
+                    {
+                        "ClassCode": "CC",
+                        "Fare": "350",
+                        "Status": "AVAILABLE-0023",
+                        "UpdateOn": "A DAY AGO"
+                    },
+                    {
+                        "ClassCode": "2S",
+                        "Fare": "95",
+                        "Status": "AVAILABLE-0009",
+                        "UpdateOn": "12 HRS AGO"
+                    }
+                ],
+                "DepartureTime": "2022-05-31T07:10:00.000Z",
+                "Destination": "KRD",
+                "Source": "PUNE",
+                "TrainName": "KOYNA EXPRESS",
+                "TrainNo": "11029",
+                "Duration": "1970-01-01T04:27:00.000Z",
+                "Fare": 95,
+                "isAvailabe": true
+            },
+            {
+                "ArrivalTime": "2022-05-30T22:37:00.000Z",
+                "AvailabileClass": "2S,SL,3A,2A,1A",
+                "Availability": [
+                    {
+                        "ClassCode": "SL",
+                        "Fare": "160",
+                        "Status": "GNWL178/WL118",
+                        "UpdateOn": "A DAY AGO"
+                    },
+                    {
+                        "ClassCode": "3A",
+                        "Fare": "505",
+                        "Status": "AVAILABLE-0048",
+                        "UpdateOn": "A MONTH AGO"
+                    },
+                    {
+                        "ClassCode": "2S",
+                        "Fare": "95",
+                        "Status": "GNWL36/WL28",
+                        "UpdateOn": "A DAY AGO"
+                    }
+                ],
+                "DepartureTime": "2022-05-30T18:45:00.000Z",
+                "Destination": "KRD",
+                "Source": "PUNE",
+                "TrainName": "MAHALAXMI EXP",
+                "TrainNo": "17411",
+                "Duration": "1970-01-01T03:52:00.000Z",
+                "Fare": 95,
+                "isAvailabe": true
+            },
+            {
+                "ArrivalTime": "2022-05-31T00:22:00.000Z",
+                "AvailabileClass": "2S,SL,3A,2A,1A",
+                "Availability": [
+                    {
+                        "ClassCode": "SL",
+                        "Fare": "160",
+                        "Status": "RLWL6/WL4",
+                        "UpdateOn": "5 DAYS AGO"
+                    },
+                    {
+                        "ClassCode": "1A",
+                        "Fare": "1175",
+                        "Status": "RLWL1/WL1",
+                        "UpdateOn": "13 DAYS AGO"
+                    },
+                    {
+                        "ClassCode": "2A",
+                        "Fare": "710",
+                        "Status": "AVAILABLE-0009",
+                        "UpdateOn": "12 DAYS AGO"
+                    },
+                    {
+                        "ClassCode": "3A",
+                        "Fare": "505",
+                        "Status": "RLWL4/WL4",
+                        "UpdateOn": "5 DAYS AGO"
+                    },
+                    {
+                        "ClassCode": "2S",
+                        "Fare": "95",
+                        "Status": "BOOKING CLOSED",
+                        "UpdateOn": "5 DAYS AGO"
+                    }
+                ],
+                "DepartureTime": "2022-05-30T20:20:00.000Z",
+                "Destination": "KRD",
+                "Source": "PUNE",
+                "TrainName": "AII SBC G NAWAJ",
+                "TrainNo": "16531",
+                "Duration": "1970-01-01T04:02:00.000Z",
+                "Fare": 95,
+                "isAvailabe": true
+            },
+            {
+                "ArrivalTime": "2022-05-31T04:52:00.000Z",
+                "AvailabileClass": "2S,SL,3A,2A,1A",
+                "Availability": [
+                    {
+                        "ClassCode": "SL",
+                        "Fare": "190",
+                        "Status": "RLWL44/WL36",
+                        "UpdateOn": "8 HRS AGO"
+                    },
+                    {
+                        "ClassCode": "1A",
+                        "Fare": "1255",
+                        "Status": "AVAILABLE-0001",
+                        "UpdateOn": "8 HRS AGO"
+                    },
+                    {
+                        "ClassCode": "2A",
+                        "Fare": "760",
+                        "Status": "RLWL9/WL9",
+                        "UpdateOn": "8 HRS AGO"
+                    },
+                    {
+                        "ClassCode": "3A",
+                        "Fare": "555",
+                        "Status": "RLWL10/WL10",
+                        "UpdateOn": "8 HRS AGO"
+                    },
+                    {
+                        "ClassCode": "2S",
+                        "Fare": "110",
+                        "Status": "RLWL5/WL5",
+                        "UpdateOn": "8 HRS AGO"
+                    }
+                ],
+                "DepartureTime": "2022-05-31T01:10:00.000Z",
+                "Destination": "KRD",
+                "Source": "PUNE",
+                "TrainName": "NZM MYS SF EXP",
+                "TrainNo": "12782",
+                "Duration": "1970-01-01T03:42:00.000Z",
+                "Fare": 110,
+                "isAvailabe": true
+            },
+            {
+                "ArrivalTime": "2022-05-31T15:12:00.000Z",
+                "AvailabileClass": "2S,SL,3A,2A",
+                "Availability": [
+                    {
+                        "ClassCode": "SL",
+                        "Fare": "190",
+                        "Status": "RLWL76/WL66",
+                        "UpdateOn": "2 DAYS AGO"
+                    },
+                    {
+                        "ClassCode": "3A",
+                        "Fare": "555",
+                        "Status": "RLWL32/WL22",
+                        "UpdateOn": "2 DAYS AGO"
+                    },
+                    {
+                        "ClassCode": "2S",
+                        "Fare": "110",
+                        "Status": "RLWL15/WL15",
+                        "UpdateOn": "A DAY AGO"
+                    }
+                ],
+                "DepartureTime": "2022-05-31T11:40:00.000Z",
+                "Destination": "KRD",
+                "Source": "PUNE",
+                "TrainName": "GOA EXPRESS",
+                "TrainNo": "12780",
+                "Duration": "1970-01-01T03:32:00.000Z",
+                "Fare": 110,
+                "isAvailabe": false
+            },
+            {
+                "ArrivalTime": "2022-05-31T22:17:00.000Z",
+                "AvailabileClass": "2S,SL,3A,2A,1A",
+                "Availability": [
+                    {
+                        "ClassCode": "SL",
+                        "Fare": "160",
+                        "Status": "GNWL57/WL50",
+                        "UpdateOn": "7 DAYS AGO"
+                    },
+                    {
+                        "ClassCode": "3A",
+                        "Fare": "505",
+                        "Status": "GNWL34/WL32",
+                        "UpdateOn": "2 DAYS AGO"
+                    },
+                    {
+                        "ClassCode": "2S",
+                        "Fare": "95",
+                        "Status": "GNWL15/WL13",
+                        "UpdateOn": "A DAY AGO"
+                    }
+                ],
+                "DepartureTime": "2022-05-31T18:25:00.000Z",
+                "Destination": "KRD",
+                "Source": "PUNE",
+                "TrainName": "DR HUBBALLI EXP",
+                "TrainNo": "17318",
+                "Duration": "1970-01-01T03:52:00.000Z",
+                "Fare": 95,
+                "isAvailabe": false
+            },
+            {
+                "ArrivalTime": "2022-05-31T03:12:00.000Z",
+                "AvailabileClass": "2S,SL,3A,2A",
+                "Availability": [
+                    {
+                        "ClassCode": "SL",
+                        "Fare": "160",
+                        "Status": "RLWL135/WL126",
+                        "UpdateOn": "2 DAYS AGO"
+                    },
+                    {
+                        "ClassCode": "3A",
+                        "Fare": "505",
+                        "Status": "RLWL41/WL23",
+                        "UpdateOn": "2 DAYS AGO"
+                    },
+                    {
+                        "ClassCode": "2S",
+                        "Fare": "95",
+                        "Status": "BOOKING CLOSED",
+                        "UpdateOn": "2 DAYS AGO"
+                    }
+                ],
+                "DepartureTime": "2022-05-30T22:50:00.000Z",
+                "Destination": "KRD",
+                "Source": "PUNE",
+                "TrainName": "MAHARASHTRA EXP",
+                "TrainNo": "11040",
+                "Duration": "1970-01-01T04:22:00.000Z",
+                "Fare": 95,
+                "isAvailabe": false
+            }
+
+
+
+        ];
+
+
+
+
+        $("#sort").selectmenu({
+            select: function (event, ui) {
+                let str = ui.item.value
+                let criteria = str.replace(/[\])}[{(]/g, '');
+
+
+
+                if (criteria == 'Best Available') {
+
+                    defaultSort()
+                }
+
+                if (criteria == 'Cheapest') {
+
+                    sortData('Fare', 'asc', 'no')
+                }
+
+                if (criteria == 'Duration') {
+
+                    sortData('Duration', 'asc', 'no')
+                }
+
+
+
+                if (criteria == `Departure Early First`) {
+
+                    sortData('DepartureTime', 'asc', 'yes')
+                }
+
+                if (criteria == `Departure Late First`) {
+
+                    sortData('DepartureTime', 'desc', 'yes')
+                }
+
+                if (criteria == `Arrival Early First`) {
+
+                    sortData('ArrivalTime', 'asc', 'yes')
+                }
+
+                if (criteria == `Arrival Late First`) {
+
+                    sortData('ArrivalTime', 'desc', 'yes')
+                }
+
+
+            }
+        }
+        );
+
+        function defaultSort() {
+
+            let column1 = 'Duration'
+            let column2 = 'isAvailabe'
+
+            meta_data.sort((a, b) => {
+                let fa = a[column1]
+                let fb = b[column1]
+                let fc = a[column2]
+                let fd = b[column2]
+                //console.log(typeof fa, fb)
+                if (fc == fd) {
+                    return (fa < fb) ? -1 : (fa > fb) ? 1 : 0;
+                }
+                else {
+                    return (fc > fd) ? -1 : 1;
+                }
+
+
+            });
+            showTrains(meta_data)
+
+
+
+        }
+
+
+        function sortData(column, order, isDate) {
+
+            if (isDate === 'yes') {
+                // console.log("Date",column,order,isDate )
+                if (order === 'asc') {
+                    meta_data.sort((a, b) => {
+                        let fa = new Date(a[column]),
+                            fb = new Date(b[column]);
+                        //console.log(typeof fa, column, order)
+
+                        if (fa < fb) {
+                            return -1;
+                        }
+                        if (fa > fb) {
+                            return 1;
+                        }
+                        return 0;
+                    });
+
+                } else {
+
+                    meta_data.sort((a, b) => {
+                        let fa = new Date(a[column]),
+                            fb = new Date(b[column]);
+                        //console.log(typeof fa, column, order)
+
+                        if (fa > fb) {
+                            return -1;
+                        }
+                        if (fa < fb) {
+                            return 1;
+                        }
+                        return 0;
+                    });
+
+
+                }
+
+
+
+
+            } else {
+
+
+                //  console.log("No Date",column,order,isDate )
+                meta_data.sort((a, b) => {
+                    let fa = a[column],
+                        fb = b[column];
+                    //console.log(typeof fa, fb)
+
+                    if (fa < fb) {
+                        return -1;
+                    }
+                    if (fa > fb) {
+                        return 1;
+                    }
+                    return 0;
+                });
+            }
+
+
+            showTrains(meta_data)
+
+        }
+
+
+        var trainOnStation=[]
+
+
+        $('#train-station-1').autocomplete({
+            minLength: 3,
+            source: function (request, response) {
+                var term = request.term;
+
+
+                $.ajax({
+
+                    url: `https://indianrailapi.com/api/v2/AutoCompleteStation/apikey/c9b14556386b178bd3170c2a8d2196d7/StationCodeOrName/${term}`,
+
+
+                    type: "GET",
+
+                    success: function (data) {
+                        console.log(`https://indianrailapi.com/api/v2/AutoCompleteStation/apikey/c9b14556386b178bd3170c2a8d2196d7/StationCodeOrName/${term}`)
+
+                       let  station3_data = []
+                        //{ label: "Choice1", value: "value1" }
+                        for (let i = 0; i < data.Station.length; i++) {
+                            
+                            trainOnStation.push({
+                                label: data.Station[i].NameEn,
+                                value: data.Station[i].StationCode
+
+                            })
+                            
+                            station3_data.push({
+                                label: data.Station[i].NameEn,
+
+                            })
+                             
+                        }
+                         
+                        response(station3_data);
+                    }
+
+                })
+
+            }
+
+        });
+
+
+
+
+        $("#station1").autocomplete({
+            minLength: 3,
+            source: function (request, response) {
+                var term = request.term;
+
+
+                $.ajax({
+
+                    url: `https://indianrailapi.com/api/v2/AutoCompleteStation/apikey/c9b14556386b178bd3170c2a8d2196d7/StationCodeOrName/${term}`,
+
+
+                    type: "GET",
+
+                    success: function (data) {
+                        console.log(`https://indianrailapi.com/api/v2/AutoCompleteStation/apikey/c9b14556386b178bd3170c2a8d2196d7/StationCodeOrName/${term}`)
+
+                        station1_data = []
+                        //{ label: "Choice1", value: "value1" }
+                        for (let i = 0; i < data.Station.length; i++) {
+                            stationCode.push({
+                                label: data.Station[i].NameEn,
+                                value: data.Station[i].StationCode
+                            })
+                            station1_data.push({
+                                label: data.Station[i].NameEn,
+
+                            })
+                            //   station1_data.push(data.Station[i].NameEn)
+                            // station_data.push({ "label": data.Station[i].NameEn, "value": data.Station[i].StationCode })
+                        }
+                        //console.log('ok', station1_data)
+                        response(station1_data);
+                    }
+
+                })
+
+            }
+
+        });
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+
+        $("#station2").autocomplete({
+            minLength: 3,
+            source: function (request, response) {
+                var term = request.term;
+
+
+                $.ajax({
+
+                    url: `https://indianrailapi.com/api/v2/AutoCompleteStation/apikey/c9b14556386b178bd3170c2a8d2196d7/StationCodeOrName/${term}`,
+
+
+                    type: "GET",
+
+                    success: function (data) {
+
+                        station2_data = []
+                        //{ label: "Choice1", value: "value1" }
+                        for (let i = 0; i < data.Station.length; i++) {
+                            stationCode.push({
+                                label: data.Station[i].NameEn,
+                                value: data.Station[i].StationCode
+                            })
+
+                            station2_data.push({
+                                label: data.Station[i].NameEn,
+
+                            })
+                            //station2_data.push(data.Station[i].NameEn)
+                            // station_data.push({ "label": data.Station[i].NameEn, "value": data.Station[i].StationCode })
+                        }
+                        //     console.log('ok', station2_data)
+                        response(station2_data);
+                    }
+
+                })
+
+            },
+            select: function (event, ui) {
+                console.log("Selected: " + ui.item.value + " aka " + ui.item.label);
+            },
+
+        });
+
+
+
+
+
+
+
+        $('.date-pick').datepicker({
+            onSelect: function (date) {
+                date = date
+                // console.log(date)
+            },
+            minDate: 0,
+            inline: true,
+
+        });
+
+
+
+        $('#searchTrains').click(function (e) {
+            e.preventDefault();
+
+            let dt = $('#datepicker').val()
+
+            let a = $('#station1').val()
+            let obj1 = stationCode.find(o => o.label === a);
+            console.log(a, obj1, typeof (obj1))
+
+            let b = $('#station2').val()
+            let obj2 = stationCode.find(o => o.label === b);
+            console.log(a, obj1, typeof (obj1))
+
+
+            if ((a == '') || obj1 == undefined || typeof (obj1) == 'undefined') {
+                alert("Plase Enter Valid From Station");
+                return false;
+            }
+            else if ((b == '') || obj2 == undefined || typeof (obj2) == 'undefined') {
+                alert("Plase Enter valid To Station");
+                return false;
+            }
+            else if (dt == '') {
+                alert("Plase Enter Date");
+                return false;
+            }
+            else {
+                fetch_data(a, b, dt)
+            }
+
+
+        });
+
+
+
+
+        function fetch_data(fromStationCd, toStationCd, dt) {
+            $('#searchTrains').addClass("disabled")
+            $('.spinner').show()
+
+            //   console.log(stationCode)
+
+            let obj1 = stationCode.find(o => o.label === fromStationCd);
+            let obj2 = stationCode.find(o => o.label === toStationCd);
+
+            let x = dt.split("/")
+            x = `${x[2]}${x[0]}${x[1]}`
+
+            let url1 = `https://indianrailapi.com/api/v2/SeatAvailability/apikey/c9b14556386b178bd3170c2a8d2196d7/From/${obj1.value}/To/${obj2.value}/Date/${x}/Server/1/Route/1/`
+
+
+            $.ajax({
+                url: url1,
+                type: "GET",
+                success: function (data, status, jqXHR) {
+
+
+
+                    //   let total_records = data.TotalTrains;
+
+                    if (data.ResponseCode == "200") {
+
+                        meta_data = [];
+                        $.each(data.Trains, function (idx, train) {
+                            let isAvailable = false
+                            let end = new Date(train.ArrivalTime)
+                            let start = new Date(train.DepartureTime)
+                            let diff = new Date(end.getTime() - start.getTime());
+                            let min = 1000000
+                            $.each(train.Availability, function (idx, repo) {
+                                console.log(typeof repo.Fare, typeof min)
+                                if (min > parseInt(repo.Fare)) {
+                                    min = parseInt(repo.Fare)
+                                }
+                                if (repo.Status.includes("AVAILABLE")) {
+                                    isAvailable = true
+                                }
+
+                            })
+                            if (min == 1000000) {
+                                min = 'NA'
+                            }
+                            //  console.log("min", train.TrainName, min)
+                            //console.log(diff)
+                            meta_data.push(
+                                {
+                                    'ArrivalTime': end,
+                                    'AvailabileClass': train.AvailabileClass,
+                                    'Availability': train.Availability,
+                                    'DepartureTime': start,
+                                    'Destination': train.Destination,
+                                    'Source': train.Source,
+                                    'TrainName': train.TrainName,
+                                    'TrainNo': train.TrainNo,
+                                    'Duration': diff,
+                                    'Fare': min,
+                                    'isAvailabe': isAvailable
+                                }
+                            )
+
+                        })
+                        console.log(meta_data)
+                        defaultSort()
+                        showTrains(meta_data)
+
+                    }
+
+                    if (data.ResponseCode == "202") {
+                        alert(data.Message)
+                        defaultSort()
+                    }
+
+
+
+                },
+
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(textStatus)
+                    defaultSort()
+                }
+
+
+
+            });
+
+        }
+
+
+        defaultSort()
+
+        function showTrains(data) {
+            $('.spinner').hide()
+            $('#searchTrains').removeClass("disabled")
+            //   console.log(data)
+            $(".train-list").empty()
+
+            for (var i = 0; i < data.length; i++) {
+
+
+
+                //let obj1 = stationCode.find(o => o.value === data[i].Source);
+                //  let obj2 = stationCode.find(o => o.value === data[i].Destination);
+                //  console.log("ok",obj1.label,obj2)
+
+
+
+                var html1 = `<div  id=train${i}">
+                    <div class="d-flex p-2 my-2  train " style="background-color: #f6f6f6" >
+                        <div id="icon" class="  p-2 d-flex  align-items-center" >
+
+
+                            <img id="wicon" src="https://www.pikpng.com/pngl/m/11-118636_melbourne-train-logo-server-icon-png-blue-clipart.png" alt="Train icon">
+
+                        </div>
+                        
+                       
+                        <div class="    p-2 d-flex   col-3   flex-column" style="margin-left: 21px; color:#7e7e7e" data-toggle="tooltip" title="${(new Date(data[i].DepartureTime)).toLocaleString()} -- ${(new Date(data[i].ArrivalTime)).toLocaleString()}">
+                            <div id="time" class="fw-bold" style="    color: black; padding: 2px;"> ${(new Date(data[i].DepartureTime)).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${(new Date(data[i].ArrivalTime)).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} </div>
+                            <div id="trainName" style="padding: 2px;"> ${data[i].TrainName}  </div>
+                            
+                        </div>
+
+
+
+                         
+                        <div class="   col-2 p-2 d-flex align-items-center flex-column" style="padding-left: 30px; color:#7e7e7e">
+                            <div id="min-temp" class="fw-bold" style="padding: 2px;    color: black;">  Train# </div>
+                            <div id="max-temp" style="padding: 2px;"> ${data[i].TrainNo}  </div>
+                        </div>
+                        <div class="    col-2 p-2 d-flex flex-grow-1 flex-column" style="padding-left: 30px; color:#7e7e7e"  >
+                            <div id="sunrise" class="fw-bold" style="padding: 2px;    color: black;" > ${((new Date(data[i].Duration).getUTCDate() - 1) * 24) + new Date(data[i].Duration).getUTCHours()}h : ${new Date(data[i].Duration).getUTCMinutes()}m </div>
+                            <div id="sunset" style="padding: 2px;"> ${data[i].Source}-${data[i].Destination}  </div>
+                        </div>
+                        <div class="    col-2 p-2 d-flex flex-column" style="padding-left: 30px; color:#7e7e7e">
+                            <div id="sunrise" style="font-size:12px; "> fare starting from </div>
+                            <div id="price" class="fw-bold" style="    color: black;" ><i class="fa fa-rupee" style="font-size:20px; "> </i> ${data[i].Fare}  </div>
+                        </div>
+                        <div class="    col-1 justify-content-center  p-2 d-flex  align-items-center">
+                            <i style="font-size: 30px;" class="fa fa-angle-down"></i>
+                            <i style="font-size: 30px; display:none" class="fa fa-angle-up"></i>
+                        </div>
+
+                    </div>
+                    <div  class="row train-toggle  justify-content-center p-3" style="display:none">
+                        <div class="p-2 col-auto">
+                        <table   class="table train-table table-responsive " style="width:400px">
+                           <thead>
+                                  <tr>
+                                           <th scope="col">Class</th>
+                                           <th scope="col">Fare</th>
+                                            <th scope="col">Status</th>
+                      
+  
+
+                                 </tr>
+                          </thead>
+                        <tbody class="train${i}"  id="myTable">
+                        </tbody>
+                      </table>
+                      </div>
+                      <div class="p-2 col-auto">
+                        <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary modal-btn" data-bs-toggle="modal" data-tno='${data[i].TrainNo}' data-tname='${data[i].TrainName}' data-bs-target="#exampleModal">
+                       Train Schedule
+                 </button>
+
+                        </div>
+                    </div>
+                    </div> `
+
+
+
+
+
+
+
+                $(".train-list").append(html1);
+                $.each(data[i].Availability, function (idx, repo) {
+                    var html = `
+                    <tr id=${i} style=" font-size: 14px;"> \
+                        <td style="    font-weight: 600;">${repo.ClassCode}</td>\
+                        <td><i class="fa fa-rupee" > </i>${repo.Fare}</td>\
+                        <td>${repo.Status}</td>\
+                                             
+                    </tr>`;
+
+                    $(`.train${i}`).append(html);
+                })
+
+
+
+
+
+            }
+
+
+        }
+
+         
+
+        $(document).on('click', '.train', function () {
+           
+            $(this).siblings().slideToggle("fast");
+            $(this).find(".fa-angle-down").toggle()
+            $(this).find(".fa-angle-up").toggle()
+            $(this).parent().toggleClass("divactive")
+
+            
+             
+        })
+
+        $(document).on('click', '.divlink', function () {
+
+            let div_id = $(this).data('id')
+            console.log(div_id)
+            $(this).addClass('active')
+            $(this).siblings().removeClass('active')
+            $(`#${div_id}`).siblings().hide()
+            $(`#${div_id}`).show()
+
+            $('#train-schedule').val('')
+
+            $('#train-station-1').val('')
+             
+        })
+
+        $(document).on('click', '.modal-btn', function (e) {
+                 
+                e.preventDefault();
+                $(`#myTable1`).empty()
+                $('.spinner1').show()
+                let trainName=$(this).data('tname')
+                let trainNum=$(this).data('tno')
+                $('.tname').text(trainNum+" "+trainName  )
+
+            let url1 = `   https://indianrailapi.com/api/v2/TrainSchedule/apikey/c9b14556386b178bd3170c2a8d2196d7/TrainNumber/${trainNum}/`
+
+
+            $.ajax({
+                url: url1,
+                type: "GET",
+                success: function (data, status, jqXHR) {
+                    
+                    $('.spinner1').hide()
+                    console.log(data)
+                    $.each(data.Route, function (idx, train) {
+                       
+                        var html = `
+                        <tr   style=" font-size: 14px;"> \
+                        <td style=" font-weight: 600;"> ${idx} </td>\
+                        <td>${train.StationName}  </td>\
+                        <td>${train.ArrivalTime} </td>\
+                        <td> ${train.DepartureTime}</td>\
+                        <td>${train.Distance} km </td>\
+                        <td> ${train.Day}</td>\
+                                             
+                    </tr>`;
+                    $(`#myTable1`).append(html);
+
+                    })
+
+                }
+            })
+
+
+
+        })
+
+        $(`.train-schedule-table1`).hide()
+        $(`.train-station-table1`).hide()
+
+        $(document).on('click','#train-station-btn',function(e){
+            $('.spinner3').show()
+            
+            let stationName= $('#train-station-1').val()
+            console.log(stationName)
+            console.log(trainOnStation)
+
+            let obj1 = trainOnStation.find(o => o.label === stationName);
+            console.log("Searched", obj1)
+
+            let url1=`https://indianrailapi.com/api/v2/LiveStation/apikey/c9b14556386b178bd3170c2a8d2196d7/StationCode/${obj1.value}/hours/23/`
+            console.log(url1)
+
+            $.ajax({
+                url: url1,
+                type: "GET",
+                success: function (data, status, jqXHR) {
+                    $('#msg24').text(`Here are trains arriving at ${stationName} within next 24 hrs`)
+                    $(`#myTable3`).empty()
+                    $('.spinner3').hide()
+                 
+                    console.log(data.Trains)
+
+
+                    $.each(data.Trains, function (idx, train) {
+                        //console.log(train)
+                        var html = `
+                        <tr   style=" font-size: 14px;"> \
+                        <td style=" font-weight: 600;"> ${train.Number} </td>\
+                        <td>${train.Name}  </td>\
+                        <td>${train.ScheduleArrival} </td>\
+                        <td> ${train.ScheduleDeparture}</td>\
+                        <td> ${train.Platform} </td>\
+                        <td>${train.Delay} </td>\
+                                             
+                    </tr>`;
+                    $(`#myTable3`).append(html);
+
+                    })
+
+                    $(`.train-station-table1`).show()
+                   
+                    
+                }
+            })
+
+
+
+
+
+
+        })
+
+
+
+        $(document).on('click', '#train-schedule-btn', function (e) {
+            $('.spinner2').show()
+           let tno= $('#train-schedule').val()
+           console.log(tno)
+           let url1 = `   https://indianrailapi.com/api/v2/TrainSchedule/apikey/c9b14556386b178bd3170c2a8d2196d7/TrainNumber/${tno}/`
+
+
+           let url2=`https://indianrailapi.com/api/v2/TrainNumberToName/apikey/c9b14556386b178bd3170c2a8d2196d7/TrainNumber/${tno}/`
+
+
+           console.log(url1)
+           console.log(url2)
+           $.ajax({
+                url: url2,
+                type: "GET",
+                success: function (data, status, jqXHR) {
+                    console.log(data.TrainName)
+                    $('#tname1').text(data.TrainName)
+                }
+            })
+
+
+
+
+
+            $.ajax({
+                url: url1,
+                type: "GET",
+                success: function (data, status, jqXHR) {
+                    $(`#myTable2`).empty()
+                    $('.spinner2').hide()
+                 
+                    
+                    $.each(data.Route, function (idx, train) {
+                        //console.log(train)
+                        var html = `
+                        <tr   style=" font-size: 14px;"> \
+                        <td style=" font-weight: 600;"> ${idx} </td>\
+                        <td>${train.StationName}  </td>\
+                        <td>${train.ArrivalTime} </td>\
+                        <td> ${train.DepartureTime}</td>\
+                        <td>${train.Distance} km </td>\
+                        <td> ${train.Day}</td>\
+                                             
+                    </tr>`;
+                    $(`#myTable2`).append(html);
+
+                    })
+
+                    $(`.train-schedule-table1`).show()
+                }
+            })
+
+        })
+
+
+
+
+
+
+    })
+</script>
+
+</body>
+
+</html>
